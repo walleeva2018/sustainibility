@@ -1,18 +1,21 @@
 <template>
   <div>
     <p class="text-black dark:text-zinc-300   text-base font-semibold">
-      Connect With Me
+      আমাদের সাথে যোগাযোগ করুন
     </p>
     <p class="dark:text-zinc-300  ">
-      I have a fair amount of knowledge of Javascript, Typescript, VueJs, and Nuxt. If you
-      have an interesting idea, either open source or paid let's connect.
+      <Icon name="fa:phone" size="1em" />
+      +8801759139913
     </p>
 
+    <p class="dark:text-zinc-300 item-center ">
+      অথবা
+    </p>
     <a
-      href="mailto: alasadnurriyad4@gmail.com"
+      href="mailto: zubairahmedrafi37@gmail.com"
       class="block text-center w-full bg-sky-700 p-2 rounded-lg text-[#F1F2F4]  mt-3 text-sm"
     >
-      Sent Mail
+      মেইল করুন
     </a>
   </div>
 </template>

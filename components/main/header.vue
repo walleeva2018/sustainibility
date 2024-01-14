@@ -11,28 +11,34 @@ function onClick(val: string) {
 
 <template>
   <div class="py-5 border-b dark:border-gray-800  font-semibold">
-    <div class="flex px-6 container max-w-5xl justify-between mx-auto items-baseline ">
-      <ul class="flex items-baseline space-x-5">
+    <div class="flex px-6 container max-w-5xl justify-between mx-auto  ">
+      <ul class="flex items-center space-x-5">
         <li class="text-base sm:text-2xl font-bold">
-          <NuxtLink to="/" :class="{ underline: path === '' }">
-            Riyad's Blog
+          <NuxtLink to="/" :class="{ underline: path === '' }" class="flex items-center space-x-2">
+            <NuxtImg
+              src="/logo.png"
+              width="115"
+              height="80"
+              quality="50"
+              class="rounded-md"
+            />
           </NuxtLink>
         </li>
       </ul>
       <ul class="flex items-center space-x-3 sm:space-x-6 text-sm sm:text-lg">
         <li>
-          <NuxtLink to="/blogs" :class="{ underline: path === 'blogs' }">
-            Blogs
+          <NuxtLink to="/courses" :class="{ underline: path === 'courses' }">
+            কোর্স সমূহ
           </NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/categories" :class="{ underline: path === 'categories' }">
-            Categories
+          <NuxtLink to="/certify" :class="{ underline: path === 'certify' }">
+            সার্টিফিকেশন পরীক্ষা
           </NuxtLink>
         </li>
-        <li title="About Me" :class="{ underline: path === 'about' }">
+        <li title="About Us" :class="{ underline: path === 'about' }">
           <NuxtLink to="/about" aria-label="About me">
-            About
+            আমাদের সম্পর্কে
           </NuxtLink>
         </li>
         <li>

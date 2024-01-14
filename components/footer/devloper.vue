@@ -1,11 +1,10 @@
 <template>
   <div>
     <p class="text-black dark:text-zinc-300   text-2xl py-1 font-semibold">
-      Al Asad Nur Riyad
+      প্রারম্ভিক
     </p>
     <p class="py-2 dark:text-zinc-300  ">
-      Hi! I am Riyad, a Tech enthusiast, problem solver and software engineer. Currently
-      working at Appscode Inc.
+      প্রারমবিক: ক্লাউড এবং ডেভঅপস মাস্টারির হাটপথ, শিখকারীদেরকে দ্রুতবর্ধমান প্রযুক্তি শখে উপকৃত করছে এবং ইনোভেশন উৎসর্গ করছে।
     </p>
     <div class="my-3 space-x-3 pb-3">
       <NuxtLink

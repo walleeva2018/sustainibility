@@ -1,19 +1,19 @@
 <template>
   <div class="flex flex-col dark:text-zinc-300   my-5 md:my-0 md:justify-self-center">
     <p class="text-black dark:text-zinc-300  text-base font-semibold">
-      Quick Link
+      লিঙ্ক সমূহ
     </p>
     <NuxtLink to="/" class="hover:underline">
-      Home
+      হোম
     </NuxtLink>
-    <NuxtLink to="/blogs" class="hover:underline">
-      Blogs
+    <NuxtLink to="/courses" class="hover:underline">
+      কোর্স সমূহ
     </NuxtLink>
-    <NuxtLink to="/categories" class="hover:underline">
-      Categories
+    <NuxtLink to="/certify" class="hover:underline">
+      সার্টিফিকেশন পরীক্ষা
     </NuxtLink>
     <NuxtLink to="/about" class="hover:underline">
-      About Me
+      আমাদের সম্পর্কে
     </NuxtLink>
   </div>
 </template>
