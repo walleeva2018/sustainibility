@@ -4,9 +4,9 @@ export default defineNuxtConfig({
     head: {
       charset: 'utf-16',
       viewport: 'width=device-width,initial-scale=1',
-      title: 'Riyad\'s Blog',
-      titleTemplate: '%s - Riyad\'s Blog',
-      meta: [{ name: 'description', content: 'Riyad\'s awesome blog' }],
+      title: 'প্রারম্ভিক ',
+      titleTemplate: '%s -প্রারম্ভিক',
+      meta: [{ name: 'description', content: 'প্রারম্ভিক' }],
     },
     pageTransition: { name: 'page', mode: 'out-in' },
     layoutTransition: { name: 'layout', mode: 'out-in' },
@@ -53,6 +53,7 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     'nuxt-simple-sitemap',
     '@nuxtjs/tailwindcss',
+    '@pinia/nuxt',
   ],
 
   content: {
@@ -60,4 +61,5 @@ export default defineNuxtConfig({
       theme: 'dracula',
     },
   },
+
 })

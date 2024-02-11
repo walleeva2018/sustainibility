@@ -1,0 +1,82 @@
+{
+    "header": {
+      "courses": {
+        "en": "Courses",
+        "bn": "কোর্স"
+      },
+      "certify": {
+        "en": "Certify",
+        "bn": "সার্টিফিকেশন পরীক্ষা"
+      },
+      "about": {
+        "en": "About",
+        "bn": "আমাদের সম্পর্কে"
+      },
+      "login": {
+        "en": "Login",
+        "bn": "লগইন"
+      },
+      "EN": {
+        "en": "en",
+        "bn": "ইংরেজি"
+      },
+      "BN": {
+        "en": "bn",
+        "bn": "বাংলা"
+      }
+    },
+    "footer": {
+        "copyright": {
+            "en": "Copyright © 2024 Praromvik.",
+            "bn": "© ২০২৪ প্রারম্ভিক(সর্বস্বত্ব সংরক্ষিত)"
+        },
+        "developer": {
+             "header": {
+                "en": "Praromvik",
+                "bn": "প্রারম্ভিক"
+             },
+             "description": {
+                "en": "Praromvik is the key to new stacks in tech world.Our goal is to keep Bangladesh always a step ahead",
+                "bn": "প্রারমবিক নতুন প্রযুক্তির একটি গ্রন্থনামা। বাংলাদেশকে তথ্য ও প্রযুক্তিতে এক ধাপ এগিয়ে রাখা প্রারম্ভিক এর মুল লক্ষ্য"
+             }
+        },
+        "connect": {
+            "contact": {
+              "en": "Connect with us",
+              "bn": "আমাদের সাথে যোগাযোগ করুন"
+            },
+            "or": {
+               "en": "OR",
+               "bn": "অথবা"
+            },
+            "mail": {
+                "en": "Mail Us",
+                "bn": "মেইল করুন"
+            }
+        },
+        "link": {
+            "all_links": {
+                "en": "All Links",
+                "bn": "লিঙ্ক সমূহ"
+            },
+            "home": {
+                "en": "Home",
+                "bn": "হোম"
+            },
+            "courses": {
+                "en":"Courses",
+                "bn": "কোর্স সমূহ"
+            },
+            "certify": {
+                "en": "Certify",
+                "bn": "সার্টিফিকেশন পরীক্ষা"
+              },
+            "about": {
+                "en": "About",
+                "bn": "আমাদের সম্পর্কে"
+              }
+        }
+
+    }
+}
+  

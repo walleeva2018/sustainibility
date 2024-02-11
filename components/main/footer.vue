@@ -1,7 +1,20 @@
 <script setup lang="ts">
+import { useAppStore } from '~/stores/appStore.js'
+import languages from '~/content/language.json'
+import type { FooterData, SupportedLanguage } from '~/types/language'
+
 const route = useRoute()
 
 const path = computed(() => route.fullPath.replace('/', ''))
+
+const footerData: FooterData = languages.footer
+
+const appStore = useAppStore()
+
+const selectedlanguage = useCookie< string >('language', {
+  default: () => 'bn',
+  path: '/',
+})
 </script>
 
 <template>
@@ -16,7 +29,7 @@ const path = computed(() => route.fullPath.replace('/', ''))
       </div>
 
       <div class="border-t dark:border-gray-800 mt-5 text-center p-2">
-        Copyright © 2024 Praromvik.
+        {{ footerData.copyright[selectedlanguage ? selectedlanguage as SupportedLanguage : appStore.language as SupportedLanguage] }}
       </div>
     </div>
   </div>

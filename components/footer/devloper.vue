@@ -1,10 +1,25 @@
+<script setup lang="ts">
+import { useAppStore } from '~/stores/appStore.js'
+import languages from '~/content/language.json'
+import type { FooterData, SupportedLanguage } from '~/types/language'
+
+const footerData: FooterData = languages.footer
+
+const appStore = useAppStore()
+
+const selectedlanguage = useCookie< string >('language', {
+  default: () => 'bn',
+  path: '/',
+})
+</script>
+
 <template>
   <div>
     <p class="text-black dark:text-zinc-300   text-2xl py-1 font-semibold">
-      প্রারম্ভিক
+      {{ footerData.developer.header[selectedlanguage ? selectedlanguage as SupportedLanguage : appStore.language as SupportedLanguage] }}
     </p>
     <p class="py-2 dark:text-zinc-300  ">
-      প্রারমবিক: ক্লাউড এবং ডেভঅপস মাস্টারির হাটপথ, শিখকারীদেরকে দ্রুতবর্ধমান প্রযুক্তি শখে উপকৃত করছে এবং ইনোভেশন উৎসর্গ করছে।
+      {{ footerData.developer.description[selectedlanguage ? selectedlanguage as SupportedLanguage : appStore.language as SupportedLanguage] }}
     </p>
     <div class="my-3 space-x-3 pb-3">
       <NuxtLink
