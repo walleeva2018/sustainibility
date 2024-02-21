@@ -91,4 +91,6 @@ useHead({
 html.dark{
   color-scheme: dark;
 }
+
+@import url("primevue/resources/themes/aura-light-green/theme.css");
 </style>

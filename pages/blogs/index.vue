@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const { data } = await useAsyncData('home', () => queryContent('/blogs').sort({ _id: -1 }).find())
+const { data } = await useAsyncData('home', () => queryContent('/courses').sort({ _id: -1 }).find())
 
 const elementPerPage = ref(5)
 const pageNumber = ref(1)

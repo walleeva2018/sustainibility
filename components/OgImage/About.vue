@@ -63,7 +63,6 @@ const title = computed(() => props.title.slice(0, 60))
         {{ description.slice(0, 200) }}
       </p>
     </div>
-    {{ link }}
     <div v-if="link" class="absolute top-[200px] right-[200px]">
       <img :src="link" :alt="title" class="w-52 h-52 rounded-full object-cover">
     </div>
