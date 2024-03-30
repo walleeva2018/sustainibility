@@ -77,6 +77,62 @@
               }
         }
 
+    },
+    "signup": {
+      "header": {
+        "en": "Sign Up",
+        "bn": "নিবন্ধন"
+      },
+      "starter": {
+        "en": "Let's start your learning journey with Praromvik",
+        "bn": "আপনার শিখার প্রারম্ভ টা প্রারম্ভিক দিয়েই হউক  "
+      },
+      "googleSignup": {
+        "en": "Sign Up With Google",
+        "bn": "গুগলের সাথে নিবন্ধন করুন"
+      },
+      "signup": {
+        "en": "Sign Up",
+        "bn": "নিবন্ধন করুন"
+      },
+      "forgotPass": {
+        "en": "Forgot Password?",
+        "bn": "পাসওয়ার্ড ভুলে গেছেন?"
+      },
+      "hasAccount": {
+        "en": "Has Account?",
+        "bn": "অ্যাকাউন্ট আছে?"
+      },
+      "login": {
+        "en": "Sign In",
+        "bn": "লগইন করুন"
+      }
+    },
+    "hero": {
+      "welcome":  {
+        "en": "Welcome to Praromvik",
+        "bn": "প্রারম্ভিক কে আপনাকে স্বাগতম "
+      },
+      "moto": {
+        "en": "Let's start your learning journey with praromvik", 
+        "bn": "আপনার শিখার শুরু টা প্রারম্ভিক দিয়েই হউক  "
+      },
+      "hours":  {
+        "en": "Hours of learning",
+        "bn": "শিখার উপকরণ ঘণ্টায়"
+      },
+      "students": {
+        "en": "Number of Students Enrolled", 
+        "bn": "মোট যত শিক্ষার্থী ভর্তি হয়েছে"
+      }
+    },
+    "courses": {
+      "featured": {
+        "en": "Featured Courses",
+        "bn": "নির্বাচিত কোর্সসমূহ"
+      }
+      
     }
+    
 }
   

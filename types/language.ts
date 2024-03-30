@@ -77,5 +77,63 @@ export interface FooterData {
     }
   }
 }
+export interface SignUp {
+  header: {
+    en?: string
+    bn?: string
+  }
+  starter: {
+    en?: string
+    bn?: string
+  }
+  googleSignup: {
+    en?: string
+    bn?: string
+  }
+  signup: {
+    en?: string
+    bn?: string
+  }
+  forgotPass: {
+    en?: string
+    bn?: string
+  }
+  hasAccount: {
+    en?: string
+    bn?: string
+  }
+  login: {
+    en?: string
+    bn?: string
+  }
+
+}
+
+export interface Hero {
+  welcome: {
+    en?: string
+    bn?: string
+  }
+  moto: {
+    en?: string
+    bn?: string
+  }
+  hours: {
+    en?: string
+    bn?: string
+  }
+  students: {
+    en?: string
+    bn?: string
+  }
+
+}
+
+export interface Courses {
+  featured: {
+    en?: string
+    bn?: string
+  }
+}
 
 export type SupportedLanguage = 'en' | 'bn'
