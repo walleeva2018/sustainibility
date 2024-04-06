@@ -5,7 +5,7 @@ useHead({
     {
       name: 'description',
       content:
-        'Welcome To My Blog Site. Get Web Development, Javascript, Typescript, NodeJs, Vue, and Nuxt, Related Articles, Tips, Learning resources and more.',
+        'Welcome To My Praromvike. Learn Cloud Knowledge all at one place',
     },
   ],
   titleTemplate: 'প্রারম্ভিক  - %s',
@@ -15,7 +15,7 @@ useHead({
 defineOgImageComponent('About', {
   headline: 'Greetings 👋',
   title: 'প্রারম্ভিক ',
-  description: 'Dive into web development with me and learn Js, Ts, Vue, Nuxt, Docker, k8s',
+  description: 'Dive into cloud development with us and learn  Docker, k8s and many more',
   link: '/riyad.jpg',
 })
 </script>

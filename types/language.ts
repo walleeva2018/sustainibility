@@ -109,6 +109,34 @@ export interface SignUp {
 
 }
 
+export interface Login {
+  header: {
+    en?: string
+    bn?: string
+  }
+  login: {
+    en?: string
+    bn?: string
+  }
+  loginButton: {
+    en?: string
+    bn?: string
+  }
+  forgetPassword: {
+    en?: string
+    bn?: string
+  }
+  noAccount: {
+    en?: string
+    bn?: string
+  }
+  signup: {
+    en?: string
+    bn?: string
+  }
+
+}
+
 export interface Hero {
   welcome: {
     en?: string

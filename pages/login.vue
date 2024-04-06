@@ -1,9 +1,48 @@
 <script setup lang="ts">
-const { $toast } = useNuxtApp()
+import { toast } from 'vue3-toastify'
+import { useAppStore } from '~/stores/appStore.js'
+import languages from '~/content/language.json'
+import type { Login, SupportedLanguage } from '~/types/language'
+
+const LoginData: Login = languages.login
+
+const selectedLanguage = useCookie<string>('language', {
+  default: () => 'bn',
+  path: '/',
+})
+
+const appStore = useAppStore()
+
 const password = ref('')
 const username = ref('')
+const isFetching = ref(false)
+const passwordVisible = ref(false)
 
-function handleLogin() {
+function toggleVisibility() {
+  passwordVisible.value = !passwordVisible.value
+}
+
+async function handleLogin() {
+  const url = 'http://localhost:8080/signin'
+  isFetching.value = true
+  const { error, pending } = await useFetch(url, {
+    method: 'post',
+    body: {
+      userName: username.value,
+      password: password.value,
+    },
+  })
+  isFetching.value = pending.value
+
+  if (error.value) {
+    toast.error(error.value?.data, { autoClose: 4000 })
+  }
+  else {
+    toast.success('Successfully Logged In', { autoClose: 1000 })
+    setTimeout(() => {
+      window.location.href = '/'
+    }, 1000)
+  }
 }
 </script>
 
@@ -12,26 +51,31 @@ function handleLogin() {
     <div class="dark:bg-gray-800 flex rounded-2xl shadow-lg max-w-3xl p-5 items-center">
       <div class="md:w-1/2 px-8 md:px-16">
         <h2 class="font-bold text-2xl text-[#002D74] dark:text-zinc-400">
-          লগইন
+          {{ LoginData.login[selectedLanguage ? selectedLanguage as SupportedLanguage : appStore.language as SupportedLanguage] }}
         </h2>
         <p class="text-xs mt-4 text-[#002D74] dark:text-gray-300">
-          যদি আপনি ইতিমধ্যে একজন সদস্য হন, সহজেই লগইন করুন
+          {{ LoginData.header[selectedLanguage ? selectedLanguage as SupportedLanguage : appStore.language as SupportedLanguage] }}
         </p>
 
         <form action="" class="flex flex-col gap-4">
-          <input v-model="username" class="p-2 mt-8 rounded-xl border bg-white dark:bg-gray-600 text-[#002D74] dark:text-gray-300" type="email" name="email" placeholder="ইমেইল">
+          <input v-model="username" class="p-2 mt-8 rounded-xl border bg-white dark:bg-gray-600 text-[#002D74] dark:text-gray-300" type="text" name="username" placeholder="username">
           <div class="relative">
-            <input v-model="password" class="p-2 rounded-xl border w-full bg-white dark:bg-gray-600 text-[#002D74] dark:text-gray-300" type="password" name="password" placeholder="পাসওয়ার্ড">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray" class="bi bi-eye absolute top-1/2 right-3 -translate-y-1/2 text-gray-300 dark:text-gray-400" viewBox="0 0 16 16">
-              <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
-              <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
-            </svg>
+            <input v-model="password" class="p-2 rounded-xl border w-full bg-white dark:bg-gray-600 text-[#002D74] dark:text-gray-300" :type="passwordVisible ? 'text' : 'password'" name="password" placeholder="Password">
+            <Icon :name="passwordVisible ? 'mdi:eye' : 'mdi:eye-off'" color="black" class="absolute top-1/2 -translate-y-1/2 right-4 cursor-pointer" @click="toggleVisibility()" />
           </div>
-          <button class="bg-sky-700 rounded-xl text-white py-2 hover:scale-105 duration-300" @click.prevent="handleLogin">
-            লগইন
+          <button class="bg-sky-700 rounded-xl text-white py-2 hover:scale-105 duration-300 relative" @click.prevent="handleLogin">
+            <span v-if="isFetching" class="flex items-center justify-center">
+              <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.96 7.96 0 014 12H0c0 4.418 3.582 8 8 8v-4c-2.205 0-4.182-.89-5.657-2.343l1.414-1.414zM12 20c2.205 0 4.182-.89 5.657-2.343l-1.414-1.414A7.96 7.96 0 0112 20h4c0-4.418-3.582-8-8-8v4zm5.657-7.657A7.96 7.96 0 0120 12h-4c0 4.418-3.582 8-8 8v-4c2.205 0 4.182-.89 5.657-2.343l1.414 1.414z" />
+              </svg>
+            </span>
+            <span v-else>
+              {{ LoginData.loginButton[selectedLanguage ? selectedLanguage as SupportedLanguage : appStore.language as SupportedLanguage] }}
+            </span>
           </button>
         </form>
-
+        <!--
         <div class="mt-6 grid grid-cols-3 items-center text-gray-400">
           <hr class="border-gray-600 dark:border-gray-700">
           <p class="text-center text-sm text-[#002D74] dark:text-gray-300">
@@ -49,16 +93,17 @@ function handleLogin() {
           </svg>
           Google দিয়ে লগইন করুন
         </button>
+        -->
 
         <div class="mt-5 text-xs border-b border-white dark:border-gray-600 py-4 text-[#002D74] dark:text-gray-300">
-          <a href="#">আপনার পাসওয়ার্ড ভুলে গেছেন?</a>
+          <a href="#">{{ LoginData.forgetPassword[selectedLanguage ? selectedLanguage as SupportedLanguage : appStore.language as SupportedLanguage] }}</a>
         </div>
 
         <div class="mt-3 text-xs flex justify-between items-center text-[#002D74] dark:text-gray-300">
-          <p>অ্যাকাউন্ট নেই?</p>
+          <p>{{ LoginData.noAccount[selectedLanguage ? selectedLanguage as SupportedLanguage : appStore.language as SupportedLanguage] }}</p>
           <NuxtLink to="/signup" aria-label="লগইন" class="ml-2 mr-2">
             <button class="py-2 px-5 bg-white border text-[#002D74] rounded-xl hover:scale-110 duration-300">
-              সাইন-আপ
+              {{ LoginData.signup[selectedLanguage ? selectedLanguage as SupportedLanguage : appStore.language as SupportedLanguage] }}
             </button>
           </NuxtLink>
         </div>

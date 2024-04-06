@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { toast } from 'vue3-toastify'
 import { useAppStore } from '~/stores/appStore.js'
 import languages from '~/content/language.json'
 import type { SignUp, SupportedLanguage } from '~/types/language'
@@ -18,9 +19,12 @@ const email = ref('')
 const password = ref('')
 const confirmPassword = ref('')
 const phoneNumber = ref('')
+const errorMessage = ref('')
 
 const passwordVisible = ref(false)
 const confirmPasswordVisible = ref(false)
+const showErrorMessage = ref(false)
+const isFetching = ref(false)
 
 function toggleVisibility(inputId: string) {
   if (inputId === 'password')
@@ -29,14 +33,47 @@ function toggleVisibility(inputId: string) {
     confirmPasswordVisible.value = !confirmPasswordVisible.value
 }
 
-async function handleSubmit(event: Event) {
-  event.preventDefault()
-
-  try {
-    username.value = 'hello'
+async function handleSubmit() {
+  if (password.value !== confirmPassword.value) {
+    errorMessage.value = 'Password mismatched'
+    showErrorMessage.value = true
+    return
   }
-  catch (e) {
-    showError('error')
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  if (!emailRegex.test(email.value)) {
+    errorMessage.value = 'Invalid email format'
+    showErrorMessage.value = true
+    return
+  }
+
+  const phoneNumberRegex = /^01\d{9}$/
+  if (!phoneNumberRegex.test(phoneNumber.value)) {
+    errorMessage.value = 'Invalid phone number format.'
+    showErrorMessage.value = true
+    return
+  }
+
+  const url = 'http://localhost:8080/signup'
+  isFetching.value = true
+  const { error, pending } = await useFetch(url, {
+    method: 'post',
+    body: {
+      userName: username.value,
+      email: email.value,
+      password: password.value,
+      phone: phoneNumber.value,
+    },
+  })
+  isFetching.value = pending.value
+
+  if (error.value) {
+    toast.error(error.value?.data, { autoClose: 4000 })
+    navigateTo('/signup')
+  }
+  else {
+    toast.success('Successfully Signed Up', { autoClose: 2000 })
+    navigateTo('/')
   }
 }
 </script>
@@ -53,8 +90,10 @@ async function handleSubmit(event: Event) {
         <p class="text-s mt-4 text-[#002D74] dark:text-gray-300">
           {{ SignupData.starter[selectedLanguage ? selectedLanguage as SupportedLanguage : appStore.language as SupportedLanguage] }}
         </p>
-
-        <form class="flex flex-col gap-4" @submit="handleSubmit">
+        <p v-if="showErrorMessage" style="color: red;">
+          Error: {{ errorMessage }}
+        </p>
+        <form class="flex flex-col gap-4">
           <input v-model="username" class="p-2 mt-8 rounded-xl border bg-white dark:bg-gray-600 text-[#002D74] dark:text-gray-300" type="text" name="username" placeholder="Name">
           <input v-model="email" class="p-2 rounded-xl border bg-white dark:bg-gray-600 text-[#002D74] dark:text-gray-300" type="email" name="email" placeholder="Email">
           <div class="relative">
@@ -69,11 +108,19 @@ async function handleSubmit(event: Event) {
             <input v-model="phoneNumber" class="p-2 rounded-xl border w-full bg-white dark:bg-gray-600 text-[#002D74] dark:text-gray-300" type="text" inputmode="numeric" pattern="[0-9]*" name="phoneNumber" placeholder="Phone">
             <Icon name="mdi:phone" color="black" class="absolute top-1/2 -translate-y-1/2 right-4 cursor-pointer" />
           </div>
-          <button type="submit" class="bg-sky-700 rounded-xl text-white py-2 hover:scale-105 duration-300">
-            {{ SignupData.signup[selectedLanguage ? selectedLanguage as SupportedLanguage : appStore.language as SupportedLanguage] }}
+          <button type="submit" class="bg-sky-700 rounded-xl text-white py-2 hover:scale-105 duration-300" @click.prevent="handleSubmit">
+            <span v-if="isFetching" class="flex items-center justify-center">
+              <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.96 7.96 0 014 12H0c0 4.418 3.582 8 8 8v-4c-2.205 0-4.182-.89-5.657-2.343l1.414-1.414zM12 20c2.205 0 4.182-.89 5.657-2.343l-1.414-1.414A7.96 7.96 0 0112 20h4c0-4.418-3.582-8-8-8v4zm5.657-7.657A7.96 7.96 0 0120 12h-4c0 4.418-3.582 8-8 8v-4c2.205 0 4.182-.89 5.657-2.343l1.414 1.414z" />
+              </svg>
+            </span>
+            <span v-else>
+              {{ SignupData.signup[selectedLanguage ? selectedLanguage as SupportedLanguage : appStore.language as SupportedLanguage] }}
+            </span>
           </button>
         </form>
-
+        <!--
         <div class="mt-6 grid grid-cols-3 items-center text-gray-400">
           <hr class="border-gray-600 dark:border-gray-700">
           <p class="text-center text-sm text-[#002D74] dark:text-gray-300">
@@ -91,6 +138,7 @@ async function handleSubmit(event: Event) {
           </svg>
           {{ SignupData.googleSignup[selectedLanguage ? selectedLanguage as SupportedLanguage : appStore.language as SupportedLanguage] }}
         </button>
+        -->
 
         <div class="mt-5 text-xs border-b border-white dark:border-gray-600 py-4 text-[#002D74] dark:text-gray-300">
           <a href="#"> {{ SignupData.forgotPass[selectedLanguage ? selectedLanguage as SupportedLanguage : appStore.language as SupportedLanguage] }}</a>

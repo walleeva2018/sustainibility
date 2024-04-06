@@ -108,6 +108,33 @@
         "bn": "লগইন করুন"
       }
     },
+    "login": {
+      "header": {
+        "en": "If you already registered simply Login",
+        "bn": "যদি আপনি ইতিমধ্যে একজন সদস্য হন, সহজেই লগইন করুন"
+      },
+      "login": {
+        "en": "Log In",
+        "bn": "লগইন করুন"
+      },
+      "loginButton": {
+        "en": "Login",
+        "bn": "লগইন"
+      },
+      "forgetPassword": {
+        "en": "Forgot Password?",
+        "bn": "আপনার পাসওয়ার্ড ভুলে গেছেন?"
+      },
+      "noAccount":{
+        "en": "Don't have an account",
+        "bn": "অ্যাকাউন্ট নেই?"
+      },
+      "signup": {
+        "en": "Sign Up",
+        "bn": "নিবন্ধন করুন"
+      }
+      
+    },
     "hero": {
       "welcome":  {
         "en": "Welcome to Praromvik",
