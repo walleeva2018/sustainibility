@@ -15,7 +15,7 @@ const appStore = useAppStore()
 
 const password = ref('')
 const username = ref('')
-const isFetching = ref(true)
+const isFetching = ref(false)
 const passwordVisible = ref(false)
 
 function toggleVisibility() {
