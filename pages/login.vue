@@ -15,7 +15,7 @@ const appStore = useAppStore()
 
 const password = ref('')
 const username = ref('')
-const isFetching = ref(false)
+const isFetching = ref(true)
 const passwordVisible = ref(false)
 
 function toggleVisibility() {
@@ -65,10 +65,8 @@ async function handleLogin() {
           </div>
           <button class="bg-sky-700 rounded-xl text-white py-2 hover:scale-105 duration-300 relative" @click.prevent="handleLogin">
             <span v-if="isFetching" class="flex items-center justify-center">
-              <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
-                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.96 7.96 0 014 12H0c0 4.418 3.582 8 8 8v-4c-2.205 0-4.182-.89-5.657-2.343l1.414-1.414zM12 20c2.205 0 4.182-.89 5.657-2.343l-1.414-1.414A7.96 7.96 0 0112 20h4c0-4.418-3.582-8-8-8v4zm5.657-7.657A7.96 7.96 0 0120 12h-4c0 4.418-3.582 8-8 8v-4c2.205 0 4.182-.89 5.657-2.343l1.414 1.414z" />
-              </svg>
+              <div class="spinner" />
+
             </span>
             <span v-else>
               {{ LoginData.loginButton[selectedLanguage ? selectedLanguage as SupportedLanguage : appStore.language as SupportedLanguage] }}
