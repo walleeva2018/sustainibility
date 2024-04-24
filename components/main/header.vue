@@ -18,7 +18,7 @@ function onClick(val: string) {
 function toggleMenu() {
   isMenuOpen.value = !isMenuOpen.value
 }
-const selectedlanguage = useCookie< string >('language', {
+const selectedlanguage = useCookie<string>('language', {
   default: () => 'bn',
   path: '/',
 })
@@ -41,33 +41,6 @@ function toggleLanguage(language: string) {
       </ul>
 
       <ul class="flex items-center space-x-3 sm:space-x-6 text-sm sm:text-lg">
-        <!-- this div is for Hamburger menu -->
-        <div class="sm:hidden relative">
-          <button class="text-gray-600 focus:outline-none dark:text-white pt-2" @click="toggleMenu">
-            <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-            </svg>
-          </button>
-          <div v-if="isMenuOpen" class="absolute top-full left-0 mt-2 w-48 dark:bg-blue-950 bg-white shadow-lg rounded-md overflow-hidden ">
-            <ul class="p-2">
-              <li>
-                <NuxtLink to="/courses" :class="{ underline: path === 'courses' }">
-                  {{ headerData.courses[selectedlanguage as SupportedLanguage] }}
-                </NuxtLink>
-              </li>
-              <li>
-                <NuxtLink to="/certify" :class="{ underline: path === 'certify' }">
-                  {{ headerData.certify[selectedlanguage as SupportedLanguage] }}
-                </NuxtLink>
-              </li>
-              <li title="About Us" :class="{ underline: path === 'about' }">
-                <NuxtLink to="/about" aria-label="About me">
-                  {{ headerData.about[selectedlanguage as SupportedLanguage] }}
-                </NuxtLink>
-              </li>
-            </ul>
-          </div>
-        </div>
         <!-- This section is for Menu in desktop mode -->
         <ul class="hidden sm:flex items-center space-x-3 sm:space-x-6 text-sm sm:text-lg">
           <li>
@@ -89,20 +62,14 @@ function toggleLanguage(language: string) {
         <li>
           <ClientOnly>
             <button
-              v-if="colorMode.value === 'light'"
-              name="light-mode"
-              title="Light"
-              class="hover:scale-110 transition-all ease-out hover:cursor-pointer"
-              @click="onClick('dark')"
+              v-if="colorMode.value === 'light'" name="light-mode" title="Light"
+              class="hover:scale-110 transition-all ease-out hover:cursor-pointer" @click="onClick('dark')"
             >
               <Icon name="icon-park:moon" size="20" />
             </button>
             <button
-              v-if="colorMode.value === 'dark'"
-              name="dark-mode"
-              title="Dark"
-              class="hover:scale-110 transition-all ease-out hover:cursor-pointer"
-              @click="onClick('light')"
+              v-if="colorMode.value === 'dark'" name="dark-mode" title="Dark"
+              class="hover:scale-110 transition-all ease-out hover:cursor-pointer" @click="onClick('light')"
             >
               <Icon name="noto:sun" size="20" />
             </button>
@@ -117,13 +84,14 @@ function toggleLanguage(language: string) {
           <ClientOnly>
             <!-- Language switch -->
             <li class="flex items-center">
-              <div class="relative inline-flex items-center rounded-full border dark:bg-slate-600 border-gray-300 bg-gray-200 w-16 h-8 cursor-pointer">
+              <div
+                class="relative inline-flex items-center rounded-full border dark:bg-slate-600 border-gray-300 bg-gray-200 w-16 h-8 cursor-pointer"
+              >
                 <div
                   :class="{
                     'bg-sky-700 transition-colors duration-300': selectedlanguage === 'en',
                     'bg-gray-200 dark:bg-slate-600': selectedlanguage === 'bn',
-                  }"
-                  class="absolute left-0 top-0 h-full w-1/2 rounded-full flex items-center justify-center text-xs"
+                  }" class="absolute left-0 top-0 h-full w-1/2 rounded-full flex items-center justify-center text-xs"
                   @click="toggleLanguage('en')"
                 >
                   EN
@@ -132,8 +100,7 @@ function toggleLanguage(language: string) {
                   :class="{
                     'bg-sky-700 transition-colors duration-300': selectedlanguage === 'bn',
                     'bg-gray-200 dark:bg-slate-600': selectedlanguage === 'en',
-                  }"
-                  class="absolute right-0 top-0 h-full w-1/2 rounded-full flex items-center justify-center text-xs"
+                  }" class="absolute right-0 top-0 h-full w-1/2 rounded-full flex items-center justify-center text-xs"
                   @click="toggleLanguage('bn')"
                 >
                   BN
@@ -149,6 +116,36 @@ function toggleLanguage(language: string) {
             </button>
           </NuxtLink>
         </li>
+        <!-- this div is for Hamburger menu -->
+        <div class="sm:hidden relative">
+          <button class="text-gray-600 focus:outline-none dark:text-white pt-2" @click="toggleMenu">
+            <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+          </button>
+          <div
+            v-if="isMenuOpen"
+            class="absolute top-full right-0 mt-2 w-32 dark:bg-blue-950 bg-white shadow-lg rounded-md overflow-hidden "
+          >
+            <ul class="p-2">
+              <li>
+                <NuxtLink to="/courses" :class="{ underline: path === 'courses' }">
+                  {{ headerData.courses[selectedlanguage as SupportedLanguage] }}
+                </NuxtLink>
+              </li>
+              <li>
+                <NuxtLink to="/certify" :class="{ underline: path === 'certify' }">
+                  {{ headerData.certify[selectedlanguage as SupportedLanguage] }}
+                </NuxtLink>
+              </li>
+              <li title="About Us" :class="{ underline: path === 'about' }">
+                <NuxtLink to="/about" aria-label="About me">
+                  {{ headerData.about[selectedlanguage as SupportedLanguage] }}
+                </NuxtLink>
+              </li>
+            </ul>
+          </div>
+        </div>
       </ul>
     </div>
   </div>
