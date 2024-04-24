@@ -81,7 +81,7 @@ async function handleSubmit() {
 <template>
   <section class="dark:bg-gray-900 min-h-screen flex items-center justify-center">
     <!-- লগইন কন্টেনার -->
-    <div class="dark:bg-gray-800 flex rounded-2xl shadow-lg max-w-5xl p-5 items-center">
+    <div class="dark:bg-gray-800 flex rounded-2xl shadow-lg max-w-6xl p-5 items-center">
       <!-- ফর্ম -->
       <div class="w-full px-8">
         <h2 class="font-bold text-2xl text-[#002D74] dark:text-zinc-400">
