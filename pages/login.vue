@@ -31,6 +31,7 @@ async function handleLogin() {
       userName: username.value,
       password: password.value,
     },
+    credentials: 'include',
   })
   isFetching.value = pending.value
 
