@@ -28,10 +28,10 @@ const selectedlanguage = useCookie< string >('language', {
         class="p-2 bg-gray-300 text-gray-800 rounded-md dark:bg-sky-700 dark:text-[#F1F2F4]"
         aria-label="Github"
       >
-        <Icon name="fa:github" size="1em" />
+        <Icon name="ic:baseline-discord" size="1em" />
       </NuxtLink>
       <NuxtLink
-        to="https://www.linkedin.com/in/nur-riyad/"
+        to="https://www.linkedin.com/company/praromvik/"
         target="_blank"
         class="p-2 bg-gray-300 text-gray-800 rounded-md dark:bg-sky-700 dark:text-[#F1F2F4]"
         aria-label="LinkedIn"
@@ -39,7 +39,7 @@ const selectedlanguage = useCookie< string >('language', {
         <Icon name="fa:linkedin-square" size="1em" />
       </NuxtLink>
       <NuxtLink
-        to="https://twitter.com/qdnvubp"
+        to="https://twitter.com/PraromvikHq"
         target="_blank"
         class="p-2 bg-gray-300 text-gray-800 rounded-md dark:bg-sky-700 dark:text-[#F1F2F4]"
         aria-label="Twitter"
@@ -47,12 +47,12 @@ const selectedlanguage = useCookie< string >('language', {
         <Icon name="fa:twitter-square" size="1em" />
       </NuxtLink>
       <NuxtLink
-        to="https://stackoverflow.com/users/16781395/nur-riyad"
+        to="https://www.facebook.com/profile.php?id=61557462003505"
         target="_blank"
         class="p-2 bg-gray-300 text-gray-800 rounded-md dark:bg-sky-700 dark:text-[#F1F2F4]"
         aria-label="StackOverflow"
       >
-        <Icon name="fa:stack-overflow" size="1em" />
+        <Icon name="ri:facebook-fill" size="1em" />
       </NuxtLink>
     </div>
   </div>
