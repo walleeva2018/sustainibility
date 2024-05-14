@@ -3,7 +3,7 @@
     <div class="certificate">
       <div class="water-mark-overlay" />
       <div class="certificate-header">
-        <img src="https://rnmastersreview.com/img/logo.png" class="logo" alt="Logo">
+        <img src="../../assets/images/logo.png" class="logo" alt="Logo">
       </div>
       <div class="certificate-body">
         <p class="certificate-title">
