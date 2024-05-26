@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 // Get Last 6 Publish Post from the content/blog directory
-import { useAppStore } from '~/stores/appStore.js'
-import languages from '~/content/language.json'
-import type { Courses, SupportedLanguage } from '~/types/language'
+import languages from '~/content/language.json';
+import { useAppStore } from '~/stores/appStore.js';
+import type { Courses, SupportedLanguage } from '~/types/language';
 
 const { data } = await useAsyncData('recent-post', () =>
   queryContent('/blogs').limit(3).sort({ _id: -1 }).find(),
@@ -40,7 +40,7 @@ useHead({
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
       <CourseCard
-        path="/"
+        path="/courses/something"
         title="Kubernetes Basic to Advance"
         description="Kubernetes is JOss"
       />
