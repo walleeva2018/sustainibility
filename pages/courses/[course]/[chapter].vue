@@ -60,7 +60,7 @@ function prevNextButton(id: number) {
             Table Of Content
           </div>
           <div>
-            <Icon v-if="ifContentHidden" name="ep:caret-bottom" size="1.5em" />
+            <Icon v-if="!ifContentHidden" name="ep:caret-bottom" size="1.5em" />
             <Icon v-else name="ep:caret-right" size="1.5em" />
           </div>
         </div>
@@ -93,7 +93,7 @@ function prevNextButton(id: number) {
           Table Of Content
         </div>
         <div>
-          <Icon v-if="ifContentHidden" name="ep:caret-bottom" size="1.5em" />
+          <Icon v-if="!ifContentHidden" name="ep:caret-bottom" size="1.5em" />
           <Icon v-else name="ep:caret-right" size="1.5em" />
         </div>
       </div>
