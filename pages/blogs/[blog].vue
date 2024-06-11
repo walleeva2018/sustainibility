@@ -1,10 +1,8 @@
 <script setup lang="ts">
-import type { BlogPost } from '@/types/blog'
+import type { BlogPost } from '@/types/blog';
 
 const { path } = useRoute()
-
 const { data: articles, error } = await useAsyncData(`blog-post-${path}`, () => queryContent(path).findOne())
-
 if (error.value)
   navigateTo('/404')
 
@@ -82,12 +80,11 @@ defineOgImageComponent('Test', {
   title: data.value.title || '',
   description: data.value.description || '',
   link: data.value.ogImage,
-
 })
 </script>
 
 <template>
-  <div class="px-6 container max-w-6xl mx-auto sm:grid grid-cols-12 gap-x-12 ">
+  <div class="px-6 pt-4 container max-w-6xl mx-auto sm:grid grid-cols-12 gap-x-12 ">
     <div class="col-span-12 lg:col-span-9">
       <BlogHeader
         :title="data.title"
