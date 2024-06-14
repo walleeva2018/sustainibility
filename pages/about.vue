@@ -65,7 +65,7 @@ defineOgImageComponent('About', {
           Start Your DevOps Leaning Journey With US
         </h3>
 
-        <p>Praromvik is a learning platform. We offer training on DevOps tools like docker, kubernetes , helm , prometheus and the list goes on. Our platform is designed for newbies who want to dive into the amazing world of cloud.</p>
+        <p>Praromvik is a learning platform.We offer training on DevOps tools like docker, kubernetes , helm , prometheus and the list goes on. Our platform is designed for newbies who want to dive into the amazing world of cloud.</p>
       </div>
       <div class="hidden sm:block col-span-3">
         <NuxtImg
