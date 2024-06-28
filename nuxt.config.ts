@@ -55,7 +55,6 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     'nuxt-simple-sitemap',
     '@nuxtjs/tailwindcss',
-    'nuxt-primevue',
     '@pinia/nuxt',
   ],
 
