@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import languages from '~/content/language.json'
-import type { HeaderData, SupportedLanguage } from '~/types/language'
 import { useAppStore } from '~/stores/appStore.js'
+import type { HeaderData, SupportedLanguage } from '~/types/language'
 
 const headerData: HeaderData = languages.header
 const route = useRoute()
@@ -30,7 +30,7 @@ function toggleLanguage(language: string) {
 </script>
 
 <template>
-  <div class="py-5 border-b dark:border-gray-800 font-semibold">
+  <div class="py-2 border-b dark:border-gray-800 font-semibold">
     <div class="flex px-6 container max-w-6xl justify-between mx-auto">
       <ul class="flex items-center space-x-5">
         <li class="text-base sm:flex font-bold">
