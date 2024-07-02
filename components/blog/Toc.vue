@@ -1,8 +1,9 @@
 <script setup lang="ts">
 const { path } = useRoute()
-const articles = await queryContent(path).findOne()
-
-const links = articles?.body?.toc?.links || []
+const { data: articles, error } = await useAsyncData(`blog-post-${path}`, () => queryContent(path).findOne())
+if (error.value)
+  navigateTo('/404')
+const links = articles?.value?.body?.toc?.links || []
 </script>
 
 <template>
