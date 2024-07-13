@@ -12,6 +12,7 @@ const isMenuOpen = ref(false)
 const appStore = useAppStore()
 
 const colorMode = useColorMode()
+colorMode.preference = 'light'
 function onClick(val: string) {
   colorMode.preference = val
 }
@@ -54,26 +55,7 @@ function toggleLanguage(language: string) {
             </NuxtLink>
           </li>
         </ul>
-        <li>
-          <ClientOnly>
-            <button
-              v-if="colorMode.value === 'light'" name="light-mode" title="Light"
-              class="hover:scale-110 transition-all ease-out hover:cursor-pointer" @click="onClick('dark')"
-            >
-              <Icon name="icon-park:moon" size="20" />
-            </button>
-            <button
-              v-if="colorMode.value === 'dark'" name="dark-mode" title="Dark"
-              class="hover:scale-110 transition-all ease-out hover:cursor-pointer" @click="onClick('light')"
-            >
-              <Icon name="noto:sun" size="20" />
-            </button>
-            <template #fallback>
-              <!-- this will be rendered on server side -->
-              <Icon name="svg-spinners:180-ring" size="20" />
-            </template>
-          </ClientOnly>
-        </li>
+
         <li class="flex items-center">
           <!-- Ensure alignment -->
           <ClientOnly>
@@ -138,3 +120,26 @@ function toggleLanguage(language: string) {
 <style scoped>
 /* Add any additional styles if needed */
 </style>
+<!--
+   <li>
+          <ClientOnly>
+            <button
+              v-if="colorMode.value === 'light'" name="light-mode" title="Light"
+              class="hover:scale-110 transition-all ease-out hover:cursor-pointer" @click="onClick('dark')"
+            >
+              <Icon name="icon-park:moon" size="20" />
+            </button>
+            <button
+              v-if="colorMode.value === 'dark'" name="dark-mode" title="Dark"
+              class="hover:scale-110 transition-all ease-out hover:cursor-pointer" @click="onClick('light')"
+            >
+              <Icon name="noto:sun" size="20" />
+            </button>
+            <template #fallback>
+             
+              <Icon name="svg-spinners:180-ring" size="20" />
+            </template>
+          </ClientOnly>
+        </li>
+ 
+-->
