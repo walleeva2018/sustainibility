@@ -12,7 +12,6 @@ const isMenuOpen = ref(false)
 const appStore = useAppStore()
 
 const colorMode = useColorMode()
-colorMode.preference = 'light'
 function onClick(val: string) {
   colorMode.preference = val
 }
@@ -35,7 +34,7 @@ function toggleLanguage(language: string) {
     <div class="flex px-6 container max-w-6xl justify-between mx-auto">
       <ul class="flex items-center space-x-5">
         <li class="text-base sm:flex font-bold">
-          <NuxtLink to="/" :class="{ underline: path === '' }" class="flex items-center space-x-2">
+          <NuxtLink to="/" class="flex items-center space-x-2">
             <NuxtImg src="/logo.png" width="115" height="80" quality="50" class="rounded-md" />
           </NuxtLink>
         </li>
@@ -45,7 +44,7 @@ function toggleLanguage(language: string) {
         <!-- This section is for Menu in desktop mode -->
         <ul class="hidden sm:flex items-center space-x-3 sm:space-x-6 text-sm sm:text-lg">
           <li title="Categories" :class="{ underline: path === 'categories' }">
-            <NuxtLink to="/categories" aria-label="About me">
+            <NuxtLink to="/categories" aria-label="Category">
               {{ headerData.category[selectedlanguage as SupportedLanguage] }}
             </NuxtLink>
           </li>
@@ -56,6 +55,26 @@ function toggleLanguage(language: string) {
           </li>
         </ul>
 
+        <li>
+          <ClientOnly>
+            <button
+              v-if="colorMode.value === 'light'" name="light-mode" title="Light"
+              class="hover:scale-110 transition-all ease-out hover:cursor-pointer" @click="onClick('dark')"
+            >
+              <Icon name="icon-park:moon" size="20" />
+            </button>
+            <button
+              v-if="colorMode.value === 'dark'" name="dark-mode" title="Dark"
+              class="hover:scale-110 transition-all ease-out hover:cursor-pointer" @click="onClick('light')"
+            >
+              <Icon name="noto:sun" size="20" />
+            </button>
+            <template #fallback>
+             
+              <Icon name="svg-spinners:180-ring" size="20" />
+            </template>
+          </ClientOnly>
+        </li>
         <li class="flex items-center">
           <!-- Ensure alignment -->
           <ClientOnly>
@@ -121,25 +140,6 @@ function toggleLanguage(language: string) {
 /* Add any additional styles if needed */
 </style>
 <!--
-   <li>
-          <ClientOnly>
-            <button
-              v-if="colorMode.value === 'light'" name="light-mode" title="Light"
-              class="hover:scale-110 transition-all ease-out hover:cursor-pointer" @click="onClick('dark')"
-            >
-              <Icon name="icon-park:moon" size="20" />
-            </button>
-            <button
-              v-if="colorMode.value === 'dark'" name="dark-mode" title="Dark"
-              class="hover:scale-110 transition-all ease-out hover:cursor-pointer" @click="onClick('light')"
-            >
-              <Icon name="noto:sun" size="20" />
-            </button>
-            <template #fallback>
-             
-              <Icon name="svg-spinners:180-ring" size="20" />
-            </template>
-          </ClientOnly>
-        </li>
+
  
 -->

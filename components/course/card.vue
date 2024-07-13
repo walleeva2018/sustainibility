@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineProps, withDefaults } from 'vue'
+import {  withDefaults } from 'vue'
 
 // Define interface for props
 interface Props {
@@ -41,7 +41,7 @@ withDefaults(defineProps<Props>(), {
         :alt="alt"
       />
       <div class="px-3 pb-4">
-        <div class="text-black dark:text-zinc-300 pt-3 pb-2">
+        <div class=" dark:text-zinc-300 pt-3 pb-2">
           <!-- Course Title using props.title -->
           <h2 class="text-xl font-semibold pb-1 group-hover:text-sky-700 dark:group-hover:text-sky-400">
             {{ title }}  <!-- Using props.title -->

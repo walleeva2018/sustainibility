@@ -38,8 +38,8 @@ function handleCourse()
 <template>
   <div class="pb-10 px-4">
     <div class="flex flex-row items-center space-x-3 pt-5 pb-3">
-      <Icon name="mdi:book" size="2em" class="text-black dark:text-zinc-300" />
-      <h2 class="text-4xl font-semibold text-black dark:text-zinc-300   ">
+      <Icon name="mdi:book" size="2em" class=" dark:text-zinc-300" />
+      <h2 class="text-4xl font-semibold  dark:text-zinc-300   ">
         {{ courseData.featured[selectedLanguage ? selectedLanguage as SupportedLanguage : appStore.language as SupportedLanguage] }}
       </h2>
     </div>
