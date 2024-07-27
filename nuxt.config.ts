@@ -13,7 +13,11 @@ export default defineNuxtConfig({
     pageTransition: { name: 'page', mode: 'out-in' },
     layoutTransition: { name: 'layout', mode: 'out-in' },
   },
-
+  runtimeConfig: {
+     public: {
+       baseDomain: process.env.NUXT_PUBLIC_BASE_DOMAIN
+     }
+  },
   sitemap: {
     strictNuxtContentPaths: true,
   },
