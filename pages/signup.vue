@@ -55,7 +55,7 @@ async function handleSubmit() {
   }
 
   const runtimeConfig = useRuntimeConfig()
-  const url =  `${runtimeConfig.public.baseDomain}/signup`
+  const url =  `${runtimeConfig.public.backendDomain}/api/signup`
   isFetching.value = true
   const { error, pending } = await useFetch(url, {
     method: 'post',

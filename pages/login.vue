@@ -24,7 +24,7 @@ function toggleVisibility() {
 
 async function handleLogin() {
   const runtimeConfig = useRuntimeConfig()
-  const url =  `${runtimeConfig.public.baseDomain}/signin`
+  const url =  `${runtimeConfig.public.backendDomain}/api/signin`
   isFetching.value = true
   const { error, pending } = await useFetch(url, {
     method: 'post',

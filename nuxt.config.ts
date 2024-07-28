@@ -15,7 +15,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
      public: {
-       baseDomain: process.env.NUXT_PUBLIC_BASE_DOMAIN
+       backendDomain: process.env.NUXT_PUBLIC_BACKEND_DOMAIN
      }
   },
   sitemap: {
