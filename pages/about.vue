@@ -3,8 +3,8 @@ import Dogpow from '~/components/logo/dogpow.vue';
 
 defineOgImageComponent('About', {
   headline: 'Greetings 👋',
-  title: 'Praromvik',
-  description: 'Dive into web development with me and learn Js, Ts, Vue, Nuxt, Docker, k8s',
+  title: 'SustainablePH',
+  description: 'Championing leaders for a sustainable Philippines.',
 })
 </script>
 

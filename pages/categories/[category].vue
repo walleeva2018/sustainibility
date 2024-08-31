@@ -42,7 +42,7 @@ useHead({
       content: `You will find all the ${category.value} related post here`,
     },
   ],
-  titleTemplate: 'Praromvik',
+  titleTemplate: 'SustainbalePh',
 })
 
 // Generate OG Image

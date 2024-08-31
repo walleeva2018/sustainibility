@@ -22,7 +22,7 @@ export default defineNuxtConfig({
     strictNuxtContentPaths: true,
   },
   site: {
-    url: 'http://praromvik.org',
+    url: 'https://sustainableph.netlify.app/',
     identity: {
       type: 'Person',
     },

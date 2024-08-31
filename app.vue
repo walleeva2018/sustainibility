@@ -1,13 +1,13 @@
 <script setup>
 const description
-  = 'Praromvik is a platform to kickstart your leaning of new technology'
+  = 'Our purpose: To build a community that amplifies the capacity of Filipinos to lead towards a sustainable future.'
 const ogTitle
-  = 'Praromvik Specialized in DevOps engineering'
+  = 'SustainablePH is Specialized in sustainibility'
 const twitterDescription
-  = 'Praromvik has blogs , videos and demo project to learn from'
+  = 'Sustainability has blogs , videos and demo project to learn from'
 const image
   = 'https://res.cloudinary.com/dmecmyphj/image/upload/v1673548905/nuxt-blog/cover_ntgs6u.webp'
-const mySite = 'http://praromvik.org'
+const mySite = 'https://sustainableph.netlify.app/'
 useHead({
   htmlAttrs: {
     lang: 'en',

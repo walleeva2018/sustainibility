@@ -28,10 +28,10 @@ useHead({
     {
       name: 'description',
       content:
-        'Learn about all the new tech like k8s , nuxt , aws , azure , docker etc',
+        'Learn about all the methods , partners & challenges on Sustainability',
     },
   ],
-  titleTemplate: 'Praromvik',
+  titleTemplate: 'SustainablePh',
 })
 function gotoBlogs(){
   router.push('/blogs')

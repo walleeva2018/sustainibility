@@ -5,7 +5,7 @@ useHead({
     {
       name: 'description',
       content:
-        'Welcome To My Praromvike. Learn Cloud Knowledge all at one place',
+        'Championing leaders for a sustainable Philippines.',
     },
   ],
   titleTemplate: 'প্রারম্ভিক  - %s',
@@ -14,8 +14,8 @@ useHead({
 // Generate OG Image
 defineOgImageComponent('About', {
   headline: 'Greetings 👋',
-  title: 'প্রারম্ভিক ',
-  description: 'Dive into cloud development with us and learn  Docker, k8s and many more',
+  title: 'SustainablePH ',
+  description: 'Championing leaders for a sustainable Philippines.',
 })
 </script>
 <template>

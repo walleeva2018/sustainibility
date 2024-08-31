@@ -64,7 +64,7 @@ useHead({
       content: 'Here you will find all the blog posts I have written & published on this site.',
     },
   ],
-  titleTemplate: 'Praromvik',
+  titleTemplate: 'SustainablePH',
 })
 
 // Generate OG Image

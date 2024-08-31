@@ -22,10 +22,10 @@ useHead({
     {
       name: 'description',
       content:
-        'Welcome to praromvik here we teach about cloud native tools like Kubernetes,Docker, Helm, Prometheus and so on',
+        'Welcome to SustainablePh We are a non-profit organization focused on raising sustainability leaders towards a Sustainable Philippines',
     },
   ],
-  titleTemplate: 'Praromvik - %s',
+  titleTemplate: 'SustainablePh - %s',
 })
 
 function handleCourse()
