@@ -1,13 +1,10 @@
 <script setup lang="ts">
 import { useAppStore } from '~/stores/appStore.js'
-import languages from '~/content/language.json'
-import type { FooterData, SupportedLanguage } from '~/types/language'
 
 const route = useRoute()
 
 const path = computed(() => route.fullPath.replace('/', ''))
 
-const footerData: FooterData = languages.footer
 
 const appStore = useAppStore()
 
@@ -29,7 +26,7 @@ const selectedlanguage = useCookie< string >('language', {
       </div>
 
       <div class="border-t dark:border-gray-800 mt-5 text-center p-2">
-        {{ footerData.copyright[selectedlanguage ? selectedlanguage as SupportedLanguage : appStore.language as SupportedLanguage] }}
+       Copyright
       </div>
     </div>
   </div>

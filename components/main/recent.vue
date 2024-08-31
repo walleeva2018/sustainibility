@@ -1,15 +1,14 @@
 <script lang="ts" setup>
 // Get Last 6 Publish Post from the content/blog directory
 import { toast } from 'vue3-toastify'
-import languages from '~/content/language.json';
+
 import { useAppStore } from '~/stores/appStore.js';
-import type { Courses, SupportedLanguage } from '~/types/language';
+
 
 const { data } = await useAsyncData('recent-post', () =>
   queryContent('/blogs').limit(3).sort({ _id: -1 }).find(),
 )
 
-const courseData: Courses = languages.courses
 const selectedLanguage = useCookie<string>('language', {
   default: () => 'bn',
   path: '/',
@@ -40,14 +39,14 @@ function handleCourse()
     <div class="flex flex-row items-center space-x-3 pt-5 pb-3">
       <Icon name="mdi:book" size="2em" class=" dark:text-zinc-300" />
       <h2 class="text-4xl font-semibold  dark:text-zinc-300   ">
-        {{ courseData.featured[selectedLanguage ? selectedLanguage as SupportedLanguage : appStore.language as SupportedLanguage] }}
+        Our Courses
       </h2>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
       <CourseCard
-        title="Kubernetes Basic to Advance"
-        description="Kubernetes is the future.If you are a experienced Devops Eng. Or trying to enter in it, This course is Best for you"
+        title="Lead to Lead Sustainibility"
+        description="How Sustainibility Can Help the society to bring change.We teach Leaders For Sustainibility"
         @click.prevent="handleCourse"
       />
 

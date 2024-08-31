@@ -1,10 +1,8 @@
 <script setup lang="ts">
 import { toast } from 'vue3-toastify'
 import { useAppStore } from '~/stores/appStore.js'
-import languages from '~/content/language.json'
-import type { Login, SupportedLanguage } from '~/types/language'
 
-const LoginData: Login = languages.login
+
 
 const selectedLanguage = useCookie<string>('language', {
   default: () => 'bn',
@@ -53,10 +51,10 @@ async function handleLogin() {
     <div class="dark:bg-gray-800 flex rounded-2xl shadow-lg max-w-3xl p-5 items-center">
       <div class="md:w-1/2 px-8 md:px-16">
         <h2 class="font-bold text-2xl text-[#002D74] dark:text-zinc-400">
-          {{ LoginData.login[selectedLanguage ? selectedLanguage as SupportedLanguage : appStore.language as SupportedLanguage] }}
+        Login
         </h2>
         <p class="text-xs mt-4 text-[#002D74] dark:text-gray-300">
-          {{ LoginData.header[selectedLanguage ? selectedLanguage as SupportedLanguage : appStore.language as SupportedLanguage] }}
+          Header
         </p>
 
         <form action="" class="flex flex-col gap-4">
@@ -71,7 +69,7 @@ async function handleLogin() {
 
             </span>
             <span v-else>
-              {{ LoginData.loginButton[selectedLanguage ? selectedLanguage as SupportedLanguage : appStore.language as SupportedLanguage] }}
+            Button
             </span>
           </button>
         </form>
@@ -96,14 +94,14 @@ async function handleLogin() {
         -->
 
         <div class="mt-5 text-xs border-b border-white dark:border-gray-600 py-4 text-[#002D74] dark:text-gray-300">
-          <a href="#">{{ LoginData.forgetPassword[selectedLanguage ? selectedLanguage as SupportedLanguage : appStore.language as SupportedLanguage] }}</a>
+          <a href="#">Forgot Password</a>
         </div>
 
         <div class="mt-3 text-xs flex justify-between items-center text-[#002D74] dark:text-gray-300">
-          <p>{{ LoginData.noAccount[selectedLanguage ? selectedLanguage as SupportedLanguage : appStore.language as SupportedLanguage] }}</p>
+          <p>Don't Have an Account</p>
           <NuxtLink to="/signup" aria-label="লগইন" class="ml-2 mr-2">
             <button class="py-2 px-5 bg-white border text-[#002D74] rounded-xl hover:scale-110 duration-300">
-              {{ LoginData.signup[selectedLanguage ? selectedLanguage as SupportedLanguage : appStore.language as SupportedLanguage] }}
+             Signup
             </button>
           </NuxtLink>
         </div>

@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import languages from '~/content/language.json'
 import { useAppStore } from '~/stores/appStore.js'
-import type { HeaderData, SupportedLanguage } from '~/types/language'
 
-const headerData: HeaderData = languages.header
+
 const route = useRoute()
 
 const path = computed(() => route.fullPath.replace('/', ''))
@@ -48,8 +46,8 @@ function handleLogout(){
     <div class="flex px-6 container max-w-6xl justify-between mx-auto">
       <ul class="flex items-center space-x-5">
         <li class="text-base sm:flex font-bold">
-          <NuxtLink to="/" class="flex items-center space-x-2">
-            <NuxtImg src="/logo.png" width="115" height="80" quality="50" class="rounded-md" />
+          <NuxtLink to="/" class="flex items-center space-x-2 dark:bg-white" >
+            <NuxtImg src="/logo.png" width="200" height="80" quality="50" class="rounded-md" />
           </NuxtLink>
         </li>
       </ul>
@@ -59,12 +57,12 @@ function handleLogout(){
         <ul class="hidden sm:flex items-center space-x-3 sm:space-x-6 text-sm sm:text-lg">
           <li title="Categories" :class="{ underline: path === 'categories' }">
             <NuxtLink to="/categories" aria-label="Category">
-              {{ headerData.category[selectedlanguage as SupportedLanguage] }}
+              Category
             </NuxtLink>
           </li>
           <li title="About Us" :class="{ underline: path === 'about' }">
             <NuxtLink to="/about" aria-label="About me">
-              {{ headerData.about[selectedlanguage as SupportedLanguage] }}
+             About
             </NuxtLink>
           </li>
         </ul>
@@ -89,40 +87,11 @@ function handleLogout(){
             </template>
           </ClientOnly>
         </li>
-        <li class="flex items-center">
-          <!-- Ensure alignment -->
-          <ClientOnly>
-            <!-- Language switch -->
-            <li class="flex items-center">
-              <div
-                class="relative inline-flex items-center rounded-full border dark:bg-slate-600 border-gray-300 bg-gray-200 w-16 h-8 cursor-pointer"
-              >
-                <div
-                  :class="{
-                    'bg-sky-700 transition-colors duration-300': selectedlanguage === 'en',
-                    'bg-gray-200 dark:bg-slate-600': selectedlanguage === 'bn',
-                  }" class="absolute left-0 top-0 h-full w-1/2 rounded-full flex items-center justify-center text-xs"
-                  @click="toggleLanguage('en')"
-                >
-                  EN
-                </div>
-                <div
-                  :class="{
-                    'bg-sky-700 transition-colors duration-300': selectedlanguage === 'bn',
-                    'bg-gray-200 dark:bg-slate-600': selectedlanguage === 'en',
-                  }" class="absolute right-0 top-0 h-full w-1/2 rounded-full flex items-center justify-center text-xs"
-                  @click="toggleLanguage('bn')"
-                >
-                  BN
-                </div>
-              </div>
-            </li>
-          </ClientOnly>
-        </li>
+
         <li v-if="praromvikCookies===undefined">
           <NuxtLink to="/login">
             <button class="bg-sky-700 rounded-xl text-white py-3 px-6 hover:scale-105 duration-300">
-              {{ headerData.login[selectedlanguage as SupportedLanguage] }}
+             Login
             </button>
           </NuxtLink>
         </li>
@@ -154,12 +123,12 @@ function handleLogout(){
             <ul class="p-2">
               <li title="Categories" :class="{ underline: path === 'categories' }">
                 <NuxtLink to="/categories" aria-label="About me">
-                  {{ headerData.category[selectedlanguage as SupportedLanguage] }}
+                 Category
                 </NuxtLink>
               </li>
               <li title="About Us" :class="{ underline: path === 'about' }">
                 <NuxtLink to="/about" aria-label="About me">
-                  {{ headerData.about[selectedlanguage as SupportedLanguage] }}
+                  Courses
                 </NuxtLink>
               </li>
             </ul>

@@ -1,9 +1,6 @@
 <script setup lang="ts">
 import { useAppStore } from '~/stores/appStore.js'
-import languages from '~/content/language.json'
-import type { FooterData, SupportedLanguage } from '~/types/language'
 
-const footerData: FooterData = languages.footer
 
 const appStore = useAppStore()
 
@@ -15,23 +12,21 @@ const selectedlanguage = useCookie< string >('language', {
 
 <template>
   <div>
-    <p class=" dark:text-zinc-300   text-2xl py-1 font-semibold">
-      {{ footerData.developer.header[selectedlanguage ? selectedlanguage as SupportedLanguage : appStore.language as SupportedLanguage] }}
+    <p class=" dark:text-zinc-300   text-l py-1 font-semibold">
+      We are a volunteer-led organization, with our work made possible through passionate leaders who believe in our cause.
+
+Help us continue our mission to raise more sustainability leaders.
     </p>
-    <p class="py-2 dark:text-zinc-300  ">
-      {{ footerData.developer.description[selectedlanguage ? selectedlanguage as SupportedLanguage : appStore.language as SupportedLanguage] }}
-    </p>
+    <a
+      href="https://sustainableph.org/donate/"
+      class="block text-center w-full bg-sky-700 p-2 rounded-lg text-[#F1F2F4]  mt-3 text-sm"
+    >
+     Donate
+    </a>
     <div class="my-3 space-x-3 pb-3">
+
       <NuxtLink
-        to="https://discord.gg/uv2hQaCH"
-        target="_blank"
-        class="p-2 bg-gray-300 text-gray-800 rounded-md dark:bg-sky-700 dark:text-[#F1F2F4]"
-        aria-label="Github"
-      >
-        <Icon name="ic:baseline-discord" size="1em" />
-      </NuxtLink>
-      <NuxtLink
-        to="https://www.linkedin.com/company/praromvik/"
+        to="https://www.linkedin.com/company/sustainableph/"
         target="_blank"
         class="p-2 bg-gray-300 text-gray-800 rounded-md dark:bg-sky-700 dark:text-[#F1F2F4]"
         aria-label="LinkedIn"
@@ -39,15 +34,15 @@ const selectedlanguage = useCookie< string >('language', {
         <Icon name="fa:linkedin-square" size="1em" />
       </NuxtLink>
       <NuxtLink
-        to="https://twitter.com/PraromvikHq"
+        to="https://www.youtube.com/c/sustainablephtv"
         target="_blank"
         class="p-2 bg-gray-300 text-gray-800 rounded-md dark:bg-sky-700 dark:text-[#F1F2F4]"
-        aria-label="Twitter"
+        aria-label="Youtube"
       >
-        <Icon name="fa:twitter-square" size="1em" />
+        <Icon name="fa:youtube-square" size="1em" />
       </NuxtLink>
       <NuxtLink
-        to="https://www.facebook.com/profile.php?id=61557462003505"
+        to="https://www.facebook.com/sustainablephofficial"
         target="_blank"
         class="p-2 bg-gray-300 text-gray-800 rounded-md dark:bg-sky-700 dark:text-[#F1F2F4]"
         aria-label="StackOverflow"

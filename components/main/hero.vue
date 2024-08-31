@@ -2,10 +2,9 @@
 import { onMounted, ref } from 'vue'
 import CountUp from 'vue-countup-v3'
 import { useAppStore } from '~/stores/appStore.js'
-import languages from '~/content/language.json'
-import type { Hero, SupportedLanguage } from '~/types/language'
 
-const HeroData: Hero = languages.hero
+
+
 
 const appStore = useAppStore()
 
@@ -42,22 +41,22 @@ onMounted(() => {
   <div class="container mx-auto mt-8">
     <div class="grid grid-cols-1 sm:grid-cols-2 items-center">
       <div class="px-6">
-        <h1 class=" dark:text-zinc-300 font-semibold leading-tight text-4xl md:text-6xl my-5">
-          {{ HeroData.welcome[selectedLanguage ? selectedLanguage as SupportedLanguage : appStore.language as SupportedLanguage] }}
-        </h1>
+        <h4 class="dark:text-zinc-300 font-semibold leading-tight text-2xl md:text-2xl my-5">
+          We are a non-profit organization focused on raising sustainability leaders towards a Sustainable Philippines
+        </h4>
         <p class="dark:text-zinc-300">
-          {{ HeroData.moto[selectedLanguage ? selectedLanguage as SupportedLanguage : appStore.language as SupportedLanguage] }}
+          Championing leaders for a sustainable Philippines.
         </p>
         <ClientOnly>
           <div class="mt-4">
             <p class="dark:text-zinc-300">
-              {{ HeroData.hours[selectedLanguage ? selectedLanguage as SupportedLanguage : appStore.language as SupportedLanguage] }}
-              <span class="primaryColor  flex font-bold text-lg md:text-xl">
+              Number of Students Enrolled
+              <span class="primaryColor flex font-bold text-lg md:text-xl">
                 <CountUp :end-val="courseCount" />+
               </span>
             </p>
             <p class="dark:text-zinc-300">
-              {{ HeroData.students[selectedLanguage ? selectedLanguage as SupportedLanguage : appStore.language as SupportedLanguage] }}
+              Total Hours of Content
               <span class="primaryColor flex font-bold text-lg md:text-xl">
                 <CountUp :end-val="studentCount" />+
               </span>
@@ -66,7 +65,19 @@ onMounted(() => {
         </ClientOnly>
       </div>
 
-      <img src="../../assets/images/coding.svg">
+      <!-- Responsive iframe for YouTube video -->
+      <div class="w-full h-64 sm:h-80 md:h-96 lg:h-[315px]">
+        <iframe 
+          class="w-full h-full"
+          src="https://www.youtube.com/embed/ajg-cuaOOi0" 
+          title="YouTube video player" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
     </div>
   </div>
 </template>
+
+

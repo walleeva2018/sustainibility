@@ -2,10 +2,9 @@
 import { ref } from 'vue'
 import { toast } from 'vue3-toastify'
 import { useAppStore } from '~/stores/appStore.js'
-import languages from '~/content/language.json'
-import type { SignUp, SupportedLanguage } from '~/types/language'
 
-const SignupData: SignUp = languages.signup
+
+
 
 const appStore = useAppStore()
 
@@ -86,10 +85,10 @@ async function handleSubmit() {
       <!-- ফর্ম -->
       <div class="w-full px-8">
         <h2 class="font-bold text-2xl text-[#002D74] dark:text-zinc-400">
-          {{ SignupData.header[selectedLanguage ? selectedLanguage as SupportedLanguage : appStore.language as SupportedLanguage] }}
+         SignUp
         </h2>
         <p class="text-s mt-4 text-[#002D74] dark:text-gray-300">
-          {{ SignupData.starter[selectedLanguage ? selectedLanguage as SupportedLanguage : appStore.language as SupportedLanguage] }}
+        SignupDat
         </p>
         <p v-if="showErrorMessage" style="color: red;">
           Error: {{ errorMessage }}
@@ -114,7 +113,7 @@ async function handleSubmit() {
               <div class="spinner" />
             </span>
             <span v-else>
-              {{ SignupData.signup[selectedLanguage ? selectedLanguage as SupportedLanguage : appStore.language as SupportedLanguage] }}
+            Signup
             </span>
           </button>
         </form>
@@ -144,10 +143,10 @@ async function handleSubmit() {
               -->
 
         <div class="mt-3 text-xs flex justify-between items-center text-[#002D74] dark:text-gray-300">
-          <p> {{ SignupData.hasAccount[selectedLanguage ? selectedLanguage as SupportedLanguage : appStore.language as SupportedLanguage] }}</p>
+          <p>Has Account</p>
           <NuxtLink to="/login" aria-label="লগইন" class="ml-2 mr-2">
             <button class="py-2 px-5 bg-white border text-[#002D74] rounded-xl hover:scale-110 duration-300">
-              {{ SignupData.login[selectedLanguage ? selectedLanguage as SupportedLanguage : appStore.language as SupportedLanguage] }}
+              login
             </button>
           </NuxtLink>
         </div>

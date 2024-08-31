@@ -1,9 +1,6 @@
 <script setup lang="ts">
 import { useAppStore } from '~/stores/appStore.js'
-import languages from '~/content/language.json'
-import type { FooterData, SupportedLanguage } from '~/types/language'
 
-const footerData: FooterData = languages.footer
 
 const appStore = useAppStore()
 
@@ -16,13 +13,13 @@ const selectedlanguage = useCookie< string >('language', {
 <template>
   <div class="flex flex-col dark:text-zinc-300   my-5 md:my-0 md:justify-self-center">
     <p class=" dark:text-zinc-300  text-base font-semibold">
-      {{ footerData.link.all_links[selectedlanguage ? selectedlanguage as SupportedLanguage : appStore.language as SupportedLanguage] }}
+      Link
     </p>
     <NuxtLink to="/" class="hover:underline">
-      {{ footerData.link.home[selectedlanguage ? selectedlanguage as SupportedLanguage : appStore.language as SupportedLanguage] }}
+      Home
     </NuxtLink>
     <NuxtLink to="/about" class="hover:underline">
-      {{ footerData.link.about[selectedlanguage ? selectedlanguage as SupportedLanguage : appStore.language as SupportedLanguage] }}
+      About
     </NuxtLink>
   </div>
 </template>
