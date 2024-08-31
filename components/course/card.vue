@@ -57,13 +57,13 @@ withDefaults(defineProps<Props>(), {
               <span>{{ price }} USD</span>
             </div>
             <div class="flex items-center gap-1">
-              <Icon name="mdi:account" size="2em" class="text-black dark:text-zinc-300 dark:bg-white" />
+              <Icon name="mdi:account" size="2em" class="text-black dark:text-zinc-300 dark:bg-white m-2" />
               <span> {{ studentNumbers }}</span>
             </div>
           </div>
           <!-- Date -->
           <div class="flex items-center mb-2">
-            <Icon name="mdi:calendar" size="1.5em" class="text-black dark:text-zinc-300" />
+            <Icon name="mdi:calendar" size="1.5em" class="text-black dark:text-zinc-300  dark:bg-white m-2"  />
             <span> Coming Soon</span> <!-- Assuming date is a prop -->
           </div>
         </div>
